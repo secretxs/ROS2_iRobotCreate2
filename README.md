@@ -73,7 +73,7 @@ ros2 launch create_bringup create_2.launch config:=/abs/path/to/config.yaml desc
 2. Launch the joystick teleop node:
    
    ``` bash
-   ros2 launch joy_teleop joy_teleop.launch.py joy_config:=dualshock4
+   ros2 launch create_bringup joy_teleop.launch joy_config:=dualshock4
    ```
 
 You can now control the robot using your joystick. 
