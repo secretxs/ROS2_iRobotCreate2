@@ -71,6 +71,7 @@ ros2 launch create_bringup create_2.launch config:=/abs/path/to/config.yaml desc
 
 
 2. Launch the joystick teleop node:
+You need to modify joy_teleop file according to https://github.com/pgold/teleop_tools/commit/13488fcad84955a31deb608dd1829e90ac831a04
    
    ``` bash
    ros2 launch create_bringup joy_teleop.launch joy_config:=dualshock4
