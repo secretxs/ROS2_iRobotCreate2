@@ -24,7 +24,7 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
    ```
 2. Install dependencies
    ``` bash
-   cd ROS2_iRobotCreate2
+   cd ROS2_iRobotCreate2/create_ws
    sudo rosdep init
    rosdep update
    rosdep install --from-paths src -i
