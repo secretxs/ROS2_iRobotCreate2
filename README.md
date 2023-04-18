@@ -37,7 +37,7 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
    ```
 4. Source the workspace:
    ``` bash
-   source ~/ROS2_iCreateRobot2/install/setup.bash
+   source ~/ROS2_iRobotCreate2/create_ws/install/setup.bash
    ```
  
 
