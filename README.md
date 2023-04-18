@@ -20,11 +20,11 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
 1. Clone this repository to your local machine:
    ``` bash
    cd ~
-   git clone https://github.com/secretxs/ROS2_iCreateRobot
+   git clone https://github.com/secretxs/ROS2_iRobotCreate2
    ```
 2. Install dependencies
    ``` bash
-   cd ROS2_iCreateRobot
+   cd ROS2_iRobotCreate2
    rosdep update
    rosdep install --from-paths src -i
    ```
