@@ -35,9 +35,9 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
    ``` bash
    colcon build
    ```
-4. Source the workspace:
+4. Source the workspace: (add to shell startup)
    ``` bash
-   source ~/ROS2_iRobotCreate2/create_ws/install/setup.bash
+   echo "source ~/ROS2_iRobotCreate2/create_ws/install/setup.bash" >> ~/.bashrc
    ```
  
 
