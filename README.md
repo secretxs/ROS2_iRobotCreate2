@@ -37,24 +37,20 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
    ```
 4. Source the workspace:
    ``` bash
-   source ~/ROS2_iCreateRobot/install/setup.bash
+   source ~/ROS2_iCreateRobot2/install/setup.bash
    ```
  
 
 #### Setup
-1. After compiling from source, don't forget to source your workspace:  
-    ``` bash
-    source ~/create_ws/install/setup.bash
-    ```
 
-2. Connect computer to Create's 7-pin serial port
+1. Connect computer to Create's 7-pin serial port
 	- If using Create 1, ensure that nothing is connected to Create's DB-25 port
 
-4. In order to connect to Create over USB, ensure your user is in the dialout group
+2. In order to connect to Create over USB, ensure your user is in the dialout group
 ``` bash
 sudo usermod -a -G dialout $USER
 ```
-4.  Logout and login for permission to take effect
+3.  Logout and login for permission to take effect
 
 
 
