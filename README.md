@@ -11,6 +11,12 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
   ```
   sudo apt install python3-rosdep python3-colcon-common-extensions
   ```
+ - Ubuntu packages: `ros-foxy-usb-cam`, `ros-foxy-slam-toolbox
+  
+  ```
+  sudo apt-get install ros-foxy-usb-cam
+  sudo apt install ros-foxy-slam-toolbox
+  ```
 - OpenCV (may take time)
   ```
   sudo curl -sSL https://raw.githubusercontent.com/milq/milq/master/scripts/bash/install-opencv.sh | sudo bash
