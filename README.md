@@ -11,7 +11,7 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
   ```
   sudo apt install python3-rosdep python3-colcon-common-extensions
   ```
-- Camera driver and 2D Slam : `ros-foxy-usb-cam`, `ros-foxy-slam-toolbox'
+- Camera driver and 2D Slam : `ros-foxy-usb-cam`, `ros-foxy-slam-toolbox`
   
   ```
   sudo apt-get install ros-foxy-usb-cam
