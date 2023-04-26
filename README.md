@@ -6,7 +6,7 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
 #### Prerequisites
 - [Ubuntu 20.4](https://www.releases.ubuntu.com/focal/)
 - [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-- Ubuntu packages: `python3-rosdep`, `python3-colcon-common-extensions`, 'g++'
+- Ubuntu packages: `python3-rosdep`, `python3-colcon-common-extensions` 'g++'
   
   ```
   sudo apt install python3-rosdep python3-colcon-common-extensions, g++
