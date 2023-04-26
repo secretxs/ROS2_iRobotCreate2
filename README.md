@@ -33,7 +33,6 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
    cd ROS2_iRobotCreate2/create_ws/src
    git clone https://github.com/AutonomyLab/libcreate
    cd ..
-   sudo rosdep init
    rosdep update
    rosdep install --from-paths src -i
    ```
