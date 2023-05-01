@@ -35,7 +35,7 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
    ``` bash
    echo "source ~/ROS2_iRobotCreate2/create_ws/install/setup.bash" >> ~/.bashrc
    ```
-4. *Optional if you want to source everytime
+4. *Optional if you don't want to source everytime
    ``` bash
    echo "source ~/ROS2_iRobotCreate2/create_ws/install/setup.bash" >> ~/.bashrc
    ```
