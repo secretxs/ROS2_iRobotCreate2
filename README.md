@@ -17,13 +17,11 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
 1. Clone this repository to your local machine:
    ``` bash
    cd ~
-   git clone https://github.com/secretxs/ROS2_iRobotCreate2
+   git clone --recursive https://github.com/secretxs/ROS2_iRobotCreate2
    ```
 2. Install dependencies
    ``` bash
    cd ROS2_iRobotCreate2/create_ws/src
-   git clone https://github.com/AutonomyLab/libcreate
-   cd ..
    rosdep update
    rosdep install --from-paths src -i
    ```
@@ -33,9 +31,9 @@ This repository contains a ROS2 Foxy workspace for a robot project that includes
    ```
 3. Source the workspace:
    ``` bash
-   echo "source ~/ROS2_iRobotCreate2/create_ws/install/setup.bash" >> ~/.bashrc
+   source ~/ROS2_iRobotCreate2/create_ws/install/setup.bash
    ```
-4. *Optional if you don't want to source everytime
+4. *Optional if you don't want to source everytime:
    ``` bash
    echo "source ~/ROS2_iRobotCreate2/create_ws/install/setup.bash" >> ~/.bashrc
    ```
@@ -52,7 +50,7 @@ sudo usermod -a -G dialout $USER
 ```
 3.  Logout and login for permission to take effect
 
-### Camera
+#### Camera
 This project supports streaming video feeds and images via a variety of interfaces and protocols that is supported by [jetson-inference](https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-streaming.md)
 -   [MIPI CSI cameras](https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-streaming.md#mipi-csi-cameras)
 -   [V4L2 cameras](https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-streaming.md#v4l2-cameras)
@@ -80,11 +78,9 @@ ros2 launch create_bringup create_2.launch config:=/abs/path/to/config.yaml desc
 
 2. Launch the joystick teleop node:
 You need to modify joy_teleop file according to https://github.com/pgold/teleop_tools/commit/13488fcad84955a31deb608dd1829e90ac831a04
-   
    ``` bash
    ros2 launch create_bringup joy_teleop.launch joy_config:=dualshock4
    ```
-
 You can now control the robot using your joystick. 
 
 ## Running the Custom ros_deep_learning Docker for Object Detection
@@ -94,6 +90,10 @@ You can go [ros_deep_learning](https://github.com/dusty-nv/ros_deep_learning) fo
 1. Run the bash script to pull and run docker container.
    ``` bash
    docker/run.sh
+   ```
+2. Run the object detection package.
+    ``` bash
+   ros2 launch ros_deep_learning detectnet.ros2.launch input:=/dev/video0 output:=display://0 model_name:="ssd-mobilenet-v2"
    ```
 
 ## Visualize on Rviz2
