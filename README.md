@@ -85,7 +85,7 @@ You can now control the robot using your joystick.
 
 ## Running the Custom ros_deep_learning Docker for Object Detection
 [ros_deep_learning](https://github.com/dusty-nv/ros_deep_learning) contains DNN inference nodes and camera/video streaming nodes for ROS/ROS2 with support for NVIDIA **[Jetson Nano / TX1 / TX2 / Xavier / Orin](https://developer.nvidia.com/embedded-computing)** devices and TensorRT.
-You can go [ros_deep_learning](https://github.com/dusty-nv/ros_deep_learning) for more customizable and purpose specific docker or follow next steps for my pre-configured for object detection ][custom docker](https://hub.docker.com/repository/docker/secretxs/foxy-pytorch-l4t-r35.2.1/general)
+You can go [ros_deep_learning](https://github.com/dusty-nv/ros_deep_learning) for more customizable and purpose specific docker or follow next steps for my pre-configured [custom docker](https://hub.docker.com/repository/docker/secretxs/foxy-pytorch-l4t-r35.2.1/general) for object detection.
 *Be careful about running docker from the script below. It passes parameters (camera etc.) that are required to pass to docker to able function properly. 
 
 1. Run the bash script to pull and run docker container.
