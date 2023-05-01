@@ -1,3 +1,6 @@
 [submodule "create_ws/src/create_robot"]
 	path = create_ws/src/create_robot
 	url = https://github.com/secretxs/create_robot
+[submodule "create_ws/src/libcreate"]
+	path = create_ws/src/libcreate
+	url = https://github.com/AutonomyLab/libcreate
