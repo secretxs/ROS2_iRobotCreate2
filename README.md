@@ -1,5 +1,5 @@
 # ROS2_iCreateRobot
-This repository contains a ROS2 Foxy workspace for a robot project that includes the `create_robot2` and  modified version of `joy_teleop` packages.
+The ROS2_iRobotCreate2 repository provides a seamless integration of the iRobot Create 2 robot with the ROS2 Foxy environment on Ubuntu 20.4. It offers comprehensive support for streaming video feeds and images through various interfaces and protocols using the jetson-inference library. Additionally, the repository includes a custom ros_deep_learning Docker container for object detection, specifically tailored for NVIDIA Jetson devices and TensorRT. This integration enables users to control and visualize the iRobot Create 2 robot with enhanced capabilities, such as object detection, while utilizing the powerful ROS2 ecosystem.
 
 ## Installation
 
