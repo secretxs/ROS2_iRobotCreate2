@@ -1,5 +1,14 @@
 # ROS2_iCreateRobot
-The ROS2_iRobotCreate2 repository provides a seamless integration of the iRobot Create 2 robot with the ROS2 Foxy environment on Ubuntu 20.4. It offers comprehensive support for streaming video feeds and images through various interfaces and protocols using the jetson-inference library. Additionally, the repository includes a custom ros_deep_learning Docker container for object detection, specifically tailored for NVIDIA Jetson devices and TensorRT. This integration enables users to control and visualize the iRobot Create 2 robot with enhanced capabilities, such as object detection, while utilizing the powerful ROS2 ecosystem.
+
+This ROS2_iRobotCreate2 repository provides an integration of Object Detection and Monocular Depth Estimation in ROS2 Foxy ecosystem and support to visualize on RViz2. It has been optimized for the Jetson Xavier NX dev kit, the iCreate Robot 2, and the Logitech c920 Monocular Camera.
+
+## Features
+
+- **Complete Integration with ROS2 Ecosystem**: This repository provides seamless integration with the ROS ecosystem. It supports video feed streaming, the usage of jetson-inference library nodes, robot control, and teleoperation.
+- **Custom Docker Container**: Included in the repository is a custom Docker container designed for running and visualizing Object Detection and Monocular Depth Estimation in ROS2 Foxy using [jetson-inferece](https://github.com/dusty-nv/jetson-inference) in modified container of [ros_deep_learning](https://github.com/dusty-nv/ros_deep_learning)that has been specifically tailored to work with NVIDIA Jetson devices and TensorRT.
+- **RVIZ2 Configuration File**: A configuration file for RVIZ2 is provided, allowing users to visualize the entire process.
+  
+Please feel free to contribute, make suggestions, or raise issues if you encounter any problems. We hope you find this project useful, and we look forward to seeing the innovative ways you use it in your own applications.
 
 ## Installation
 
@@ -50,8 +59,7 @@ The ROS2_iRobotCreate2 repository provides a seamless integration of the iRobot 
 sudo usermod -a -G dialout $USER
 ```
 3.  Logout and login for permission to take effect
-
-#### Camera
+##### Camera
 This project supports streaming video feeds and images via a variety of interfaces and protocols that is supported by [jetson-inference](https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-streaming.md)
 -   [MIPI CSI cameras](https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-streaming.md#mipi-csi-cameras)
 -   [V4L2 cameras](https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-streaming.md#v4l2-cameras)
@@ -62,44 +70,48 @@ This project supports streaming video feeds and images via a variety of interfac
 -   [OpenGL windows](https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-streaming.md#output-streams)
 
 ## Running the robot
+
 1. Launch the robot simulation:
    ``` bash
    ros2 launch create_bringup create_2.launch
    ```
-
-Launch file arguments
+   Launch file arguments
    -   **config** - Absolute path to a configuration file (YAML). Default: `create_bringup/config/default.yaml`
-   -   **desc** - Enable robot description (URDF/mesh). Default: `true`
-
-For example, if you would like to disable the robot description and provide a custom configuration file:
-``` bash
-ros2 launch create_bringup create_2.launch config:=/abs/path/to/config.yaml desc:=false
-```
-
-
-2. Launch the joystick teleop node:
-You need to modify joy_teleop file according to https://github.com/pgold/teleop_tools/commit/13488fcad84955a31deb608dd1829e90ac831a04
+   - **desc** - Enable robot description (URDF/mesh). Default: `true`
+     
+2. Launch the joystick teleop node (to robot using your joystick) \*optional
    ``` bash
    ros2 launch create_bringup joy_teleop.launch joy_config:=dualshock4
    ```
-You can now control the robot using your joystick. 
+Warning! You may need to modify joy_teleop file according to https://github.com/pgold/teleop_tools/commit/13488fcad84955a31deb608dd1829e90ac831a04
 
-## Running the Custom ros_deep_learning Docker for Object Detection
-[ros_deep_learning](https://github.com/dusty-nv/ros_deep_learning) contains DNN inference nodes and camera/video streaming nodes for ROS/ROS2 with support for NVIDIA **[Jetson Nano / TX1 / TX2 / Xavier / Orin](https://developer.nvidia.com/embedded-computing)** devices and TensorRT.
-You can go [ros_deep_learning](https://github.com/dusty-nv/ros_deep_learning) for more customizable and purpose specific docker or follow next steps for my pre-configured [custom docker](https://hub.docker.com/repository/docker/secretxs/foxy-pytorch-l4t-r35.2.1/general) for object detection.
-*Be careful about running docker from the script below. It passes parameters (camera etc.) that are required to pass to docker to able function properly. 
 
-1. Run the bash script to pull and run docker container.
+If you want to learn more details about IRobot Create 2, you can go to my own fork of [create_robot](https://github.com/secretxs/create_robot) repository or original repository [create_robot](https://github.com/AutonomyLab/create_robot).
+
+## Running the Custom Docker for Object Detection and Monocular Depth Estimation and Visualization
+You can follow the next steps to use modified version of [ros_deep_learning](https://github.com/dusty-nv/ros_deep_learning) docker container that works in ROS ecosystem that uses
+- Object Detection using Detectnet with "ssd-mobilenet-v2"  
+- Monocular Depth Estimation and Visualization with "fcn-mobilenet"
+If you you more customization, you can go [ros_deep_learning](https://github.com/dusty-nv/ros_deep_learning) for more customizable and purpose specific dockers that natively supports some of the image processing ROS nodes or write your own ROS node using [jetson-inference](https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-streaming.md).
+1. Run the ROS USB Camera Node:
    ``` bash
-   docker/run.sh
+   ros2 run usb_cam usb_cam_node_exe
    ```
-2. Run the object detection package.
+2. Run the bash script to pull and run docker container.
+   ``` bash
+   docker/launch/run.sh
+   ```
+3. Run the pre-configured Object Detection Script
     ``` bash
-   ros2 launch ros_deep_learning detectnet.ros2.launch input:=/dev/video0 output:=display://0 model_name:="ssd-mobilenet-v2"
+   python3 ROS2_iRobotCreate2/docker/scripts/ros_object.py 
+   ```
+4. Run the pre-configured Monocular Depth Estimation Script
+    ``` bash
+   python ROS2_iRobotCreate2/docker/scripts/ros_depth.py
    ```
 
 ## Visualize on Rviz2
-You can launch pre-configured rviz2 by;
+You can launch pre-configured rviz2 with
 ```
 ros2 run rviz2 rviz2 -d ~/ROS2_iRobotCreate2/config/rviz2_icreate2.rviz
 ```
