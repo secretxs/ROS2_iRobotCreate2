@@ -93,7 +93,7 @@ class DepthEstimationNode(Node):
         # Create header
         header = Header()
         header.stamp = self.get_clock().now().to_msg()
-        header.frame_id = 'odom'
+        header.frame_id = 'base_footprint'
 
         # Create fields
         fields = [
