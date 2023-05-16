@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-source docker/tag.sh
+source docker/launch/tag.sh
 
 ROS_DISTRO="foxy"
-CONTAINER_IMAGE="secretxs/foxy-pytorch-l4t-r35.2.1:v3.0"
+CONTAINER_IMAGE="secretxs/foxy-pytorch-l4t-r35.2.1:v3.1"
 
 USER_VOLUME=""
 USER_COMMAND=""
