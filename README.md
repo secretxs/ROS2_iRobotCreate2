@@ -23,6 +23,7 @@ The ROS2_iRobotCreate2 repository provides a seamless integration of the iRobot 
    ``` bash
    cd ROS2_iRobotCreate2/create_ws/src
    rosdep update
+   cd ..
    rosdep install --from-paths src -i
    ```
 3. Build the workspace:
