@@ -1,6 +1,9 @@
 # ROS2_iCreateRobot
 
 This ROS2_iRobotCreate2 repository provides an integration of Object Detection and Monocular Depth Estimation in ROS2 Foxy ecosystem and support to visualize on RViz2. It has been optimized for the Jetson Xavier NX dev kit, the iCreate Robot 2, and the Logitech c920 Monocular Camera.
+![Image of Rviz2](config/demo.png)
+
+
 
 ## Features
 
